@@ -78,6 +78,8 @@ with psycopg2.connect(database="netology_db", user="postgres", password="postgre
         """, ("Python",))  # хорошо, обратите внимание на кортеж
         print(cur.fetchone())
 
+
+        -- ФУНКЦИЯ для извлечения данных: узнать идентификатор курса по его имени. С её помощью передаем str и получаем id.
         def get_course_id(cursor, name: str) -> int:
             cursor.execute("""
             SELECT id FROM course WHERE name=%s;
